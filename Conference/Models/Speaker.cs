@@ -15,6 +15,6 @@ namespace Conference.Models
         [Display(Name = "Email")]
         public string EmailAddress { get; set; }
 
-        public virtual List<Session> Sessions { get; set; }
+        //public virtual List<Session> Sessions { get; set; }
     }
 }
