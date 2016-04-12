@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Conference.Models
 {
@@ -12,13 +8,12 @@ namespace Conference.Models
 
         [Required]
         public string Title { get; set; }
-        
+
         [Required]
         [DataType(DataType.MultilineText)]
         public string Abstract { get; set; }
 
         public int SpeakerID { get; set; }
-
         public virtual Speaker Speaker { get; set; }
     }
 }

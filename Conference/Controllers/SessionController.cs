@@ -1,7 +1,7 @@
-﻿using Conference.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Conference.Controllers
@@ -11,12 +11,16 @@ namespace Conference.Controllers
         // GET: Session
         public ActionResult Index()
         {
-            ConferenceContext context = new ConferenceContext();
-            List<Session> sessions = context.Sessions.ToList();
-            return View(sessions);
+            return View();
         }
 
-        //GET: Session/Create
+        // GET: Session/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: Session/Create
         public ActionResult Create()
         {
             return View();
@@ -24,24 +28,62 @@ namespace Conference.Controllers
 
         // POST: Session/Create
         [HttpPost]
-        public ActionResult Create(Session session)
+        public ActionResult Create(FormCollection collection)
         {
-            if (!ModelState.IsValid) {
-                return View(session);
-            }
             try
             {
-                ConferenceContext context = new ConferenceContext();
-                context.Sessions.Add(session);
-                context.SaveChanges();
-            } catch (Exception ex) {
-                ModelState.AddModelError("Error ", ex.Message);
-                return View(session);
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
             }
+            catch
+            {
+                return View();
+            }
+        }
 
-            TempData["Message"] = "Created " + session.Title;
+        // GET: Session/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
 
-            return RedirectToAction("Index");
+        // POST: Session/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Session/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Session/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

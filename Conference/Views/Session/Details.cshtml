@@ -1,0 +1,8 @@
+﻿@model Conference.Models.Session
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Title</h2>
+<div>@Model.Abstract</div>
+@Html.Action("_GetForSession", "Comment", new { SessionID = Model.SessionID })
